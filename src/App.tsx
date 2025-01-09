@@ -5,6 +5,7 @@ import Recipes from "./Recipes/Recipes";
 import { allRecipes, sugarRecipes, summerRecipes, dessertRecipes, chocolateRecipes, autumnRecipes, veganRecipes } from "./Recipes/RecipeData";
 import { tagList } from "./Tags/TagData";
 import { all_filters } from "./helpers/data";
+import { SelectedTagsHeader } from "./Tags/SelectedTags";
 
 const onpage_filters = [
     { filter: "all", recipes: allRecipes },
@@ -35,7 +36,8 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <h1>Liste des recettes</h1>
-            <TagList tags={tagList} />
+        <SelectedTagsHeader />
+        <TagList tags={tagList} />
             <div className="flex items-center justify-center space-x-4">
                 {all_filters.map(({ filter, label }) => (
                     <button key={filter} onClick={() => setFilter(filter)}>

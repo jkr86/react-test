@@ -34,7 +34,7 @@ export const dessert: TagType = {
   id: "dessert",
   name: {
     fr: "dessert",
-    en: "appetizer",
+    en: "dessert",
   },
   type: "plateType",
   color: "#e320bd",

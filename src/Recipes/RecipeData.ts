@@ -109,7 +109,7 @@ const tropicalSmoothie: RecipeType = {
   nom: "Tropical Smoothie",
   description: "A refreshing and healthy tropical smoothie packed with vitamins.",
   imageURL:
-    "https://example.com/images/tropical-smoothie.jpg",
+    "https://images.unsplash.com/photo-1514995669114-6081e934b693?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ingredients: [banana, pineapple, mango, yogurt, honey],
   ingredientsWithQuantity: [
     { ingredient: banana, quantity: 1 },
@@ -127,6 +127,7 @@ export const allRecipes: ListOfRecipes = [
   fondantChocolat,
   pearPie,
   waldorfSalad,
+  tropicalSmoothie
 ];
 
 export const summerRecipes = allRecipes.filter((recipe) => {

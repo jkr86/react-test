@@ -5,98 +5,37 @@ import { useState } from "react";
 import { Tags } from "../Tags/Tags";
 
 export const Recipe = ({ recipe }: { recipe: RecipeType }) => {
-  const [showSteps, setShowSteps] = useState<Boolean>(false);
-  const [showIngredients, setShowIngredients] = useState<boolean>(false);
+    const [showSteps, setShowSteps] = useState<Boolean>(false);
+    const [showIngredients, setShowIngredients] = useState<boolean>(false);
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        padding: "10px",
-        boxShadow: "5px 5px 7px 2px rgba(0,0,0,0.76)",
-        marginTop: "20px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          height: "200px",
-          width: "70%",
-          backgroundImage: `url(${recipe.imageURL})`,
-          backgroundSize: "cover",
-        }}
-      ></div>
-      <div
-        style={{
-          padding: "10px",
-          backgroundColor: "lightblue",
-          width: "100%",
-        }}
-      >
-        <h2>Nom de la recette: {recipe.nom}</h2>
-        <div
-          style={{
-            padding: "10px",
-          }}
-        >
-          {recipe.description}
+    return (
+        <div className="rounded-md overflow-hidden shadow-md">
+            <img alt="" className="object-center h-64 object-cover w-full" src={recipe.imageURL} />
+            <div className="pt-4 p-6 bg-gray-100">
+                <h2 className="font-semibold">Nom de la recette: {recipe.nom}</h2>
+                <p className="text-gray-600 text-sm">{recipe.description}</p>
+                <div>
+                    <Tags tags={recipe.tags} />
+                </div>
+                <div>
+                    <span>Ingrédients</span>:
+                    <button className="px-6 bg-blue-400 py-1 rounded-md ml-4 text-m" onClick={() => setShowIngredients(!showIngredients)}>
+                        {showIngredients ? "Masquer" : "Afficher"}
+                    </button>
+                    {showIngredients && <IngredientsWithQuantity ingredientsWithQuantity={recipe.ingredientsWithQuantity} />}
+                </div>
+                <div className="mt-4">
+                    <div>
+                        <span>Etapes de la recette: </span>
+                        <button className="px-6 bg-blue-400 py-1 rounded-md ml-4 text-sm" onClick={() => setShowSteps(!showSteps)}>
+                            {showSteps ? "Masquer" : "Afficher"}
+                        </button>
+                    </div>
+                    {recipe.etapes && showSteps && <Steps steps={recipe.etapes} />}
+                </div>
+            </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Tags tags={recipe.tags} />
-        </div>
-        <div
-          style={{
-            backgroundColor: "blanchedalmond",
-            padding: "10px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-          }}
-        >
-          Ingrédients:
-          <button onClick={() => setShowIngredients(!showIngredients)}>
-            {showIngredients ? "Masquer" : "Afficher"}
-          </button>
-          {showIngredients && (
-            <IngredientsWithQuantity
-              ingredientsWithQuantity={recipe.ingredientsWithQuantity}
-            />
-          )}
-        </div>
-        <div
-          style={{
-            padding: "10px",
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "flex-start",
-            alignItems: "flex-start",
-          }}
-        >
-          <div
-            style={{
-              padding: "10px",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            Etapes de la recette:
-            <button onClick={() => setShowSteps(!showSteps)}>
-              {showSteps ? "Masquer" : "Afficher"}
-            </button>
-          </div>
-          {recipe.etapes && showSteps && <Steps steps={recipe.etapes} />}
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Recipe;

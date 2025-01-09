@@ -1,27 +1,26 @@
-export const all_filters=[
+export const all_filters = [
     {
-      "filter": "chocolate",
-      "label": "Chocolat"
+        filter: { en: "chocolate", fr: "chocolat" },
+        label: "Chocolat",
     },
     {
-      "filter": "sugar",
-      "label": "Sucre"
+        filter: { en: "sugar", fr: "sucre" },
+        label: "Sucre",
     },
     {
-      "filter": "summer",
-      "label": "Eté"
+        filter: { en: "summer", fr: "été" },
+        label: "Été",
     },
     {
-      "filter": "dessert",
-      "label": "Dessert"
+        filter: { en: "dessert", fr: "dessert" },
+        label: "Dessert",
     },
     {
-      "filter": "chocolate dessert",
-      "label": "Dessert Chocolat"
+        filter: { en: "chocolate dessert", fr: "dessert au chocolat" },
+        label: "Dessert Chocolat",
     },
     {
-      "filter": "vegan",
-      "label": "Vegan"
-    }
-  ]
-  
+        filter: { en: "vegan", fr: "végétalien" },
+        label: "Végétalien",
+    },
+];

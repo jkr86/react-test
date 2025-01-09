@@ -1,39 +1,39 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
-// Define types
-type Tag = {
-  id: string;
-  name: {
-    fr: string;
-    en: string;
-  };
-  type: string;
-  color: string;
-};
-
+// Define the context type
 interface TagContextType {
   selectedTags: string[];
-  toggleTag: (tag: string) => void;
+  addTag: (tag: string) => void;
+  removeTag: (tag: string) => void;
 }
 
+// Create the context
 const TagContext = createContext<TagContextType | undefined>(undefined);
 
-export const TagProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+// Provider component
+export const TagProvider: React.FC = ({ children }) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const toggleTag = (tag: string) => {
-    setSelectedTags(prevTags =>
-      prevTags.includes(tag) ? prevTags.filter(t => t !== tag) : [...prevTags, tag]
-    );
+  // Add a tag to the selectedTags list
+  const addTag = (tag: string) => {
+    if (!selectedTags.includes(tag)) {
+      setSelectedTags((prevTags) => [...prevTags, tag]);
+    }
+  };
+
+  // Remove a tag from the selectedTags list
+  const removeTag = (tag: string) => {
+    setSelectedTags((prevTags) => prevTags.filter((item) => item !== tag));
   };
 
   return (
-    <TagContext.Provider value={{ selectedTags, toggleTag }}>
+    <TagContext.Provider value={{ selectedTags, addTag, removeTag }}>
       {children}
     </TagContext.Provider>
   );
 };
 
+// Custom hook to access the context
 export const useTagContext = (): TagContextType => {
   const context = useContext(TagContext);
   if (!context) {

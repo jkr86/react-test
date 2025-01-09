@@ -14,6 +14,11 @@ import {
   salad,
   cucumber,
   feta,
+  banana,
+  pineapple,
+  mango,
+  yogurt,
+  honey,
 } from "../Ingredients/IngredientData";
 
 import {
@@ -26,6 +31,8 @@ import {
   appetizer,
   autumn,
   dessert,
+  drink,
+  healthy,
   summer,
   vegan,
   winter,
@@ -97,6 +104,23 @@ const waldorfSalad: RecipeType = {
   ],
   tags: [appetizer, summer, vegan],
 };
+
+const tropicalSmoothie: RecipeType = {
+  nom: "Tropical Smoothie",
+  description: "A refreshing and healthy tropical smoothie packed with vitamins.",
+  imageURL:
+    "https://example.com/images/tropical-smoothie.jpg",
+  ingredients: [banana, pineapple, mango, yogurt, honey],
+  ingredientsWithQuantity: [
+    { ingredient: banana, quantity: 1 },
+    { ingredient: pineapple, quantity: 200, unit: "g" },
+    { ingredient: mango, quantity: 150, unit: "g" },
+    { ingredient: yogurt, quantity: 100, unit: "ml" },
+    { ingredient: honey, quantity: 1, unit: "tbsp" },
+  ],
+  tags: [drink, summer, healthy],
+};
+
 
 export const allRecipes: ListOfRecipes = [
   pavlova,

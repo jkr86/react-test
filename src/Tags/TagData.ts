@@ -60,6 +60,37 @@ export const winter: TagType = {
   color: "blue",
 };
 
+export const drink: TagType = {
+  id: "drink",
+  name: {
+    fr: "boisson",
+    en: "drink",
+  },
+  type: "plateType",
+  color: "#0074D9",
+};
+
+export const healthy: TagType = {
+  id: "healthy",
+  name: {
+    fr: "sain",
+    en: "healthy",
+  },
+  type: "diet",
+  color: "#2ECC40",
+};
+
+export const tropical: TagType = {
+  id: "tropical",
+  name: {
+    fr: "tropical",
+    en: "tropical",
+  },
+  type: "flavor",
+  color: "#FF851B",
+};
+
+
 export const tagList: TagType[] = [
   summer,
   winter,
@@ -67,4 +98,6 @@ export const tagList: TagType[] = [
   appetizer,
   autumn,
   vegan,
+  drink,
+  healthy,
 ];

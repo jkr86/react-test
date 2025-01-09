@@ -71,3 +71,37 @@ export const cucumber: IngredientType = {
   type: "vegetables",
   unit: "unit",
 };
+
+export const banana: IngredientType = {
+  name: "banana",
+  type: "fruit",
+  unit: "unit",
+};
+
+export const pineapple: IngredientType = {
+  name: "pineapple",
+  type: "fruit",
+  unit: "g",
+  prefix: "of",
+};
+
+export const mango: IngredientType = {
+  name: "mango",
+  type: "fruit",
+  unit: "g",
+  prefix: "of",
+};
+
+export const yogurt: IngredientType = {
+  name: "yogurt",
+  type: "dairy",
+  unit: "ml",
+  prefix: "of",
+};
+
+export const honey: IngredientType = {
+  name: "honey",
+  type: "sweetener",
+  unit: "tbsp",
+  prefix: "of",
+};
